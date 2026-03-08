@@ -147,7 +147,7 @@ export default function Home() {
             <p className="text-lg md:text-2xl text-white/70 max-w-2xl font-light leading-relaxed text-center mb-12">
               We architect autonomous systems that eliminate operational drag. Replace manual chaotic workflows with silent, infinite scalability.
             </p>
-            <div className="flex flex-wrapjustify-center gap-6 items-center">
+            <div className="flex flex-wrap justify-center gap-6 items-center">
               <Link
                 to="/services"
                 className="group relative px-8 py-4 overflow-hidden rounded-lg font-bold uppercase tracking-[0.1em] text-sm text-white hover-lift"
@@ -237,15 +237,15 @@ export default function Home() {
                   0{index + 1}
                 </p>
                 <h3 className="text-3xl font-display font-bold text-white mb-4 group-hover:text-brand-cyan transition-colors">
-                  {service.title}
+                  {service.name}
                 </h3>
                 <p className="text-brand-muted text-lg font-light max-w-sm mb-12">
-                  {service.shortDesc}
+                  {service.shortDescription}
                 </p>
                 <div className="flex flex-wrap gap-2 mt-auto">
-                  {service.tags.slice(0, 3).map(tag => (
-                    <span key={tag} className="text-xs px-3 py-1 rounded-full border border-white/10 bg-black/40 text-brand-accent group-hover:border-brand-accent/50 transition-colors">
-                      {tag}
+                  {service.deliverables?.slice(0, 3).map(deliverable => (
+                    <span key={deliverable} className="text-xs px-3 py-1 rounded-full border border-white/10 bg-black/40 text-brand-accent group-hover:border-brand-accent/50 transition-colors">
+                      {deliverable}
                     </span>
                   ))}
                 </div>
