@@ -6,32 +6,40 @@ import PricingCard from "../components/PricingCard";
 
 const features = [
   {
-    title: "Save Time",
+    title: "Time is Asymmetric",
     description:
-      "Eliminate repetitive manual tasks. Our automation systems run 24/7 so your team can focus on high-impact work that actually moves the needle.",
+      "Eliminate manual loops. Our systems operate continuously, creating leverage that allows your team to focus exclusively on strategic execution.",
     icon: (
-      <svg className="w-8 h-8" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+      <svg className="w-8 h-8" fill="none" stroke="url(#gradient-icon)" strokeWidth={1.5} viewBox="0 0 24 24">
+        <defs>
+          <linearGradient id="gradient-icon" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stopColor="var(--color-brand-cyan)" />
+            <stop offset="50%" stopColor="var(--color-brand-accent)" />
+            <stop offset="100%" stopColor="var(--color-brand-magenta)" />
+          </linearGradient>
+        </defs>
+        <path strokeLinecap="square" d="M12 6v6h6" />
+        <circle cx="12" cy="12" r="10" strokeLinecap="square" />
       </svg>
     ),
   },
   {
-    title: "Reduce Costs",
+    title: "Surgical Precision",
     description:
-      "Cut operational expenses by automating workflows that previously required full-time staff. Do more with less — intelligently.",
+      "Cut operational drag. We deploy intelligent workflows that execute complex tasks with higher fidelity and zero variance.",
     icon: (
-      <svg className="w-8 h-8" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 18.75a60.07 60.07 0 0115.797 2.101c.727.198 1.453-.342 1.453-1.096V18.75M3.75 4.5v.75A.75.75 0 013 6h-.75m0 0v-.375c0-.621.504-1.125 1.125-1.125H20.25M2.25 6v9m18-10.5v.75c0 .414.336.75.75.75h.75m-1.5-1.5h.375c.621 0 1.125.504 1.125 1.125v9.75c0 .621-.504 1.125-1.125 1.125h-.375m1.5-1.5H21a.75.75 0 00-.75.75v.75m0 0H3.75m0 0h-.375a1.125 1.125 0 01-1.125-1.125V15m1.5 1.5v-.75A.75.75 0 003 15h-.75M15 10.5a3 3 0 11-6 0 3 3 0 016 0zm3 0h.008v.008H18V10.5zm-12 0h.008v.008H6V10.5z" />
+      <svg className="w-8 h-8" fill="none" stroke="url(#gradient-icon)" strokeWidth={1.5} viewBox="0 0 24 24">
+        <path strokeLinecap="square" d="M4 4h16v16H4zM4 10h16M10 4v16" />
       </svg>
     ),
   },
   {
-    title: "Increase Efficiency",
+    title: "Terminal Velocity",
     description:
-      "Streamline every process from lead capture to customer support. AI-powered systems learn, adapt, and improve over time.",
+      "Scale without linear headcount scaling. Our AI architectures adapt and optimize, perpetually increasing throughput.",
     icon: (
-      <svg className="w-8 h-8" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z" />
+      <svg className="w-8 h-8" fill="none" stroke="url(#gradient-icon)" strokeWidth={1.5} viewBox="0 0 24 24">
+        <path strokeLinecap="square" d="M13 3L4 14h7l-2 7 9-11h-7l2-7z" />
       </svg>
     ),
   },
@@ -39,69 +47,65 @@ const features = [
 
 const plans = [
   {
-    name: "Starter",
-    description: "Perfect for small businesses getting started with automation.",
+    name: "Foundation",
+    description: "Initial automation architecture for emerging operations.",
     price: "₹15,000",
     features: [
-      "1 automation workflow",
-      "Basic CRM integration",
-      "Email support",
-      "Monthly performance report",
-      "Up to 1,000 automated actions/mo",
+      "1 Core sequence",
+      "Standard telemetry",
+      "Asynchronous support",
+      "Monthly audit",
+      "1,000 compute cycles/mo",
     ],
-    cta: "Get Started",
+    cta: "Initiate Base",
   },
   {
-    name: "Growth",
-    description: "For growing teams that need multiple connected automations.",
+    name: "Velocity",
+    description: "Multi-node connected intelligence for scaling systems.",
     price: "₹50,000",
     features: [
-      "Up to 5 automation workflows",
-      "Advanced CRM + marketing integration",
-      "AI chatbot (1 channel)",
-      "Priority email & chat support",
-      "Weekly performance reports",
-      "Up to 10,000 automated actions/mo",
+      "5 Core sequences",
+      "Advanced telemetry + routing",
+      "Initial AI node (1 channel)",
+      "Priority bandwidth",
+      "Weekly audits",
+      "10,000 compute cycles/mo",
     ],
-    cta: "Choose Growth",
+    cta: "Engage Velocity",
   },
   {
-    name: "Enterprise",
-    description: "Full-scale automation infrastructure for established businesses.",
+    name: "Apex",
+    description: "Limitless operational infrastructure for established entities.",
     price: "Custom",
     features: [
-      "Unlimited automation workflows",
-      "Full-stack integrations",
-      "Multi-channel AI chatbot",
-      "Dedicated account manager",
-      "Custom analytics dashboards",
-      "Unlimited automated actions",
-      "24/7 priority support",
+      "Unrestricted sequences",
+      "Full-stack autonomous systems",
+      "Multi-node AI deployment",
+      "Direct engineer access",
+      "Real-time command center",
+      "Infinite compute cycles",
+      "Zero-latency support",
     ],
-    cta: "Contact Us",
+    cta: "Request Architecture",
   },
 ];
 
 const values = [
   {
-    title: "Results-Driven",
-    description:
-      "We measure success by the time saved and revenue generated — not the number of tools deployed.",
+    title: "Empirical Output",
+    description: "We index on measurable leverage, not theoretical complexity. If it doesn't move the needle, we don't build it.",
   },
   {
-    title: "Custom-Built",
-    description:
-      "No cookie-cutter templates. Every solution is architected around your specific business processes and goals.",
+    title: "Bespoke Architecture",
+    description: "Zero templates. Every system is a tailored solution engineered specifically for your organizational topology.",
   },
   {
-    title: "End-to-End Support",
-    description:
-      "From strategy to deployment to ongoing optimization, we're with you at every step of the journey.",
+    title: "Continuous Optimization",
+    description: "Deployment is day zero. We monitor, refine, and upgrade systems to maintain peak efficiency.",
   },
   {
-    title: "Future-Proof",
-    description:
-      "We build on modern, scalable platforms that grow with your business and adapt as technology evolves.",
+    title: "Infinite Scale",
+    description: "Our architectures are built on modern, composable primitives that handle 10x growth without breaking sweat.",
   },
 ];
 
@@ -121,53 +125,73 @@ export default function Home() {
   };
 
   return (
-    <>
+    <div className="flex flex-col gap-32 pb-32">
       {/* ─── HERO ─── */}
-      <section id="home" className="relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-emerald-900/20 via-stone-900 to-stone-900 pointer-events-none" />
-        <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-28 sm:py-40 min-h-[calc(100vh-4rem)] flex flex-col items-center justify-center text-center">
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white mb-6 fade-in-up">
-            Automate. Simplify.{" "}
-            <span className="text-emerald-400">Scale.</span>
+      <section id="home" className="relative min-h-[90vh] flex items-center px-6 md:px-12 pt-16">
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-[600px] bg-gradient-to-r from-brand-magenta/10 via-brand-cyan/5 to-brand-accent/10 blur-[100px] rounded-full pointer-events-none" />
+        <div className="max-w-7xl mx-auto w-full flex flex-col items-center text-center relative z-10">
+          <div className="inline-flex items-center gap-3 px-4 py-2 rounded-full border border-white/10 bg-white/5 backdrop-blur-sm mb-12 fade-in-up delay-100">
+            <span className="w-2 h-2 rounded-full bg-brand-cyan animate-pulse" />
+            <p className="text-white/80 font-bold tracking-[0.2em] uppercase text-xs">
+              System Initialization // 01
+            </p>
+          </div>
+
+          <h1 className="font-display font-extrabold text-6xl md:text-8xl lg:text-9xl leading-[0.95] tracking-tighter text-white mb-10 w-full max-w-6xl fade-in-up delay-200">
+            ENGINEERED<br />
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-cyan via-brand-accent to-brand-magenta animate-pulse-slow">
+              LEVERAGE.
+            </span>
           </h1>
-          <p className="max-w-2xl mx-auto text-lg sm:text-xl text-stone-400 mb-10 fade-in-up" style={{ animationDelay: "0.15s" }}>
-            We build AI-powered automation systems for modern businesses — so you
-            can focus on growth while intelligent systems handle the rest.
-          </p>
-          <a
-            href="#services"
-            className="inline-block bg-emerald-500 hover:bg-emerald-600 text-white font-semibold px-8 py-3.5 rounded-xl text-base transition-colors duration-200 shadow-lg shadow-emerald-500/20 hover:shadow-emerald-500/30 fade-in-up"
-            style={{ animationDelay: "0.3s" }}
-          >
-            View Services
-          </a>
+          <div className="flex flex-col items-center w-full pt-10 fade-in-up delay-300">
+            <p className="text-lg md:text-2xl text-white/70 max-w-2xl font-light leading-relaxed text-center mb-12">
+              We architect autonomous systems that eliminate operational drag. Replace manual chaotic workflows with silent, infinite scalability.
+            </p>
+            <div className="flex flex-wrapjustify-center gap-6 items-center">
+              <Link
+                to="/services"
+                className="group relative px-8 py-4 overflow-hidden rounded-lg font-bold uppercase tracking-[0.1em] text-sm text-white hover-lift"
+              >
+                <div className="absolute inset-0 bg-gradient-to-r from-brand-cyan to-brand-magenta transition-opacity group-hover:opacity-90" />
+                <span className="relative z-10 text-white drop-shadow-md">Access Catalog</span>
+              </Link>
+              <Link
+                to="/contact"
+                className="px-8 py-4 rounded-lg liquid-glass text-white font-bold uppercase tracking-[0.1em] text-sm hover:text-brand-cyan transition-colors duration-300 hover-lift"
+              >
+                Initiate Contact
+              </Link>
+            </div>
+          </div>
         </div>
       </section>
 
       {/* ─── WHAT WE DO ─── */}
-      <section className="py-20 sm:py-24">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-14">
-            <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">
-              What We Do
+      <section className="px-6 md:px-12 relative">
+        <div className="max-w-7xl mx-auto pt-8">
+          <div className="flex flex-col md:flex-row gap-12 justify-between mb-16 items-center">
+            <h2 className="font-display text-4xl md:text-6xl font-bold tracking-tighter uppercase shrink-0 text-white">
+              The Protocol
             </h2>
-            <p className="max-w-2xl mx-auto text-stone-400 text-lg">
-              We design and deploy intelligent automation systems that eliminate
-              busywork, connect your tools, and give your team superpowers.
+            <p className="text-white/60 text-lg md:text-xl max-w-2xl font-light leading-relaxed border-l-2 border-brand-accent pl-8">
+              We view businesses as systems of equations. We locate the inefficiencies, design the automation architecture, and deploy intelligence.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
-            {features.map((f) => (
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {features.map((f, i) => (
               <div
                 key={f.title}
-                className="bg-stone-800 border border-stone-700/60 rounded-2xl p-6 text-center transition-all duration-300 hover:border-emerald-500/40 hover:shadow-[0_0_30px_-5px_rgba(16,185,129,0.12)] hover:-translate-y-1"
+                className="liquid-glass rounded-2xl p-10 group hover:border-brand-cyan/50 transition-colors duration-500 relative overflow-hidden"
               >
-                <div className="inline-flex items-center justify-center w-14 h-14 rounded-xl bg-emerald-500/10 text-emerald-400 mb-5">
+                <div className="absolute top-0 right-0 w-32 h-32 bg-brand-magenta/10 rounded-bl-full blur-2xl group-hover:bg-brand-cyan/20 transition-colors duration-500" />
+                <div className="mb-12 relative z-10">
                   {f.icon}
                 </div>
-                <h3 className="text-lg font-semibold text-white mb-2">{f.title}</h3>
-                <p className="text-stone-400 text-sm leading-relaxed">
+                <h3 className="text-2xl font-display font-bold text-white mb-4 tracking-tight">
+                  {f.title}
+                </h3>
+                <p className="text-brand-muted text-base leading-relaxed font-light">
                   {f.description}
                 </p>
               </div>
@@ -177,273 +201,242 @@ export default function Home() {
       </section>
 
       {/* ─── SERVICES ─── */}
-      <section id="services" className="py-20 sm:py-24">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-14">
-            <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">
-              Our Services
-            </h2>
-            <p className="max-w-2xl mx-auto text-stone-400 text-lg">
-              From website automation to AI chatbots — production-ready systems
-              that plug into your workflow and deliver value from day one.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-            {services.map((service) => (
-              <ServiceCard key={service.id} service={service} />
-            ))}
-          </div>
-
-          <div className="text-center mt-10">
+      <section id="services" className="px-6 md:px-12 relative">
+        <div className="absolute right-0 top-1/2 w-96 h-96 bg-brand-cyan/10 blur-[100px] rounded-full pointer-events-none" />
+        <div className="max-w-7xl mx-auto pt-16">
+          <div className="flex flex-col md:flex-row gap-12 justify-between items-end mb-16 border-b border-white/10 pb-8">
+            <div>
+              <div className="inline-flex items-center gap-3 px-4 py-2 rounded-full liquid-glass mb-6">
+                <p className="text-brand-cyan font-bold tracking-[0.2em] uppercase text-xs text-glow">
+                  Capabilities // 02
+                </p>
+              </div>
+              <h2 className="font-display text-5xl md:text-6xl font-bold tracking-tighter uppercase text-white">
+                Active Catalog
+              </h2>
+            </div>
             <Link
               to="/services"
-              className="inline-block border border-emerald-500 text-emerald-400 hover:bg-emerald-500 hover:text-white font-medium px-6 py-2.5 rounded-xl text-sm transition-all duration-200"
+              className="group text-white/70 hover:text-white uppercase tracking-widest text-sm font-bold transition-colors flex items-center gap-3 bg-white/5 py-3 px-6 rounded-full border border-white/10 hover:border-brand-magenta/50"
             >
-              Explore All Services →
+              View Directory
+              <span className="text-brand-magenta group-hover:text-brand-cyan transition-colors">→</span>
             </Link>
+          </div>
+
+          {/* Changed mapping to map to new glassy ServiceCards or custom inline cards if needed, but going to render inline here to guarantee the bento layout logic cleanly */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {services.slice(0, 3).map((service, index) => (
+              <Link
+                to={`/services/${service.id}`}
+                key={service.id}
+                className={`liquid-glass rounded-2xl p-8 group hover:-translate-y-2 transition-all duration-500 overflow-hidden relative ${index === 0 ? 'md:col-span-2 lg:col-span-2' : ''}`}
+              >
+                <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none" />
+                <p className="text-brand-muted font-display font-bold text-xs tracking-widest mb-6 border-b border-white/10 pb-4 inline-block">
+                  0{index + 1}
+                </p>
+                <h3 className="text-3xl font-display font-bold text-white mb-4 group-hover:text-brand-cyan transition-colors">
+                  {service.title}
+                </h3>
+                <p className="text-brand-muted text-lg font-light max-w-sm mb-12">
+                  {service.shortDesc}
+                </p>
+                <div className="flex flex-wrap gap-2 mt-auto">
+                  {service.tags.slice(0, 3).map(tag => (
+                    <span key={tag} className="text-xs px-3 py-1 rounded-full border border-white/10 bg-black/40 text-brand-accent group-hover:border-brand-accent/50 transition-colors">
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+              </Link>
+            ))}
           </div>
         </div>
       </section>
 
       {/* ─── PRICING ─── */}
-      <section id="pricing" className="py-20 sm:py-24">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-14">
-            <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">
-              Simple, Transparent Pricing
+      <section id="pricing" className="px-6 md:px-12">
+        <div className="max-w-7xl mx-auto pt-24">
+          <div className="flex flex-col items-center text-center mb-20">
+            <div className="inline-flex items-center gap-3 px-4 py-2 rounded-full liquid-glass mb-6">
+              <p className="text-brand-magenta font-bold tracking-[0.2em] uppercase text-xs text-glow">
+                Acquisition // 03
+              </p>
+            </div>
+            <h2 className="font-display text-5xl md:text-7xl font-bold tracking-tighter uppercase mb-6 text-white text-gradient">
+              Investment Tiers
             </h2>
-            <p className="max-w-2xl mx-auto text-stone-400 text-lg">
-              Choose a plan that fits your business. Scale up anytime as your
-              automation needs grow.
+            <p className="text-white/60 text-xl max-w-2xl font-light">
+              Transparent, high-leverage capital allocation for autonomous infrastructure.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 max-w-5xl mx-auto">
-            {plans.map((plan, i) => (
-              <PricingCard key={plan.name} plan={plan} highlighted={i === 1} />
-            ))}
-          </div>
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            {plans.map((plan, i) => {
+              const isMiddle = i === 1;
+              return (
+                <div key={plan.name} className={`rounded-3xl p-10 flex flex-col relative overflow-hidden transition-transform duration-500 hover:-translate-y-2 ${isMiddle ? 'border border-brand-cyan bg-white/5 shadow-[0_0_40px_rgba(0,255,255,0.15)]' : 'liquid-glass'}`}>
+                  {isMiddle && (
+                    <div className="absolute top-0 inset-x-0 h-1 bg-gradient-to-r from-brand-cyan to-brand-magenta" />
+                  )}
+                  <h3 className="font-display text-2xl font-bold text-white mb-2">{plan.name}</h3>
+                  <p className="text-brand-muted text-sm font-light h-10 mb-8 pb-8 border-b border-white/10">{plan.description}</p>
 
-          <div className="text-center mt-10">
-            <Link
-              to="/pricing"
-              className="inline-block border border-emerald-500 text-emerald-400 hover:bg-emerald-500 hover:text-white font-medium px-6 py-2.5 rounded-xl text-sm transition-all duration-200"
-            >
-              View Full Pricing Details →
-            </Link>
+                  <div className="mb-10">
+                    <span className={`font-display text-5xl font-extrabold ${isMiddle ? 'text-transparent bg-clip-text bg-gradient-to-r from-brand-cyan to-brand-accent' : 'text-white'}`}>{plan.price}</span>
+                    {plan.price !== "Custom" && <span className="text-white/50 text-xl font-light ml-2">/mo</span>}
+                  </div>
+
+                  <ul className="space-y-4 mb-12 flex-1">
+                    {plan.features.map(feature => (
+                      <li key={feature} className="flex gap-3 text-white/80 font-light text-sm items-center">
+                        <span className={isMiddle ? 'text-brand-cyan' : 'text-white/40'}>■</span>
+                        {feature}
+                      </li>
+                    ))}
+                  </ul>
+
+                  <Link to="/contact" className={`w-full py-4 rounded-xl font-bold uppercase tracking-widest text-xs text-center transition-all duration-300 ${isMiddle ? 'bg-gradient-to-r from-brand-cyan to-brand-accent text-black hover:shadow-[0_0_20px_rgba(0,255,255,0.4)]' : 'bg-white/10 hover:bg-white border border-white/10 hover:text-black text-white'}`}>
+                    {plan.cta}
+                  </Link>
+                </div>
+              )
+            })}
           </div>
         </div>
       </section>
 
       {/* ─── ABOUT ─── */}
-      <section id="about" className="py-20 sm:py-24">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl mx-auto text-center mb-14">
-            <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">
-              About <span className="text-emerald-400">AvlokAI</span>
+      <section id="about" className="px-6 md:px-12 my-12">
+        <div className="max-w-7xl mx-auto liquid-glass rounded-[40px] p-10 md:p-24 relative overflow-hidden">
+          <div className="absolute -bottom-1/2 -right-1/4 w-full h-[600px] bg-gradient-to-tl from-brand-accent/20 via-brand-magenta/10 to-transparent blur-[100px] rounded-full pointer-events-none" />
+
+          <div className="mb-24 relative z-10">
+            <h2 className="font-display text-5xl md:text-8xl font-bold tracking-tighter uppercase mb-10 text-white">
+              The Studio
             </h2>
-            <p className="text-stone-400 text-lg leading-relaxed">
-              AvlokAI is an automation-first technology studio that helps
-              businesses eliminate manual bottlenecks through AI-powered systems.
-              We believe every repetitive process can — and should — be automated.
+            <p className="text-white/80 text-2xl md:text-4xl font-light leading-tight max-w-4xl border-l-4 border-brand-magenta pl-8">
+              AvlokAI is an engineering collective dedicated to the absolute elimination of operational friction. <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-cyan to-brand-magenta font-bold">We believe bandwidth is sacred.</span>
             </p>
           </div>
 
-          {/* Why Choose Us */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 lg:gap-8 mb-16">
-            {values.map((v) => (
-              <div
-                key={v.title}
-                className="bg-stone-800 border border-stone-700/60 rounded-2xl p-6 transition-all duration-300 hover:border-emerald-500/40 hover:-translate-y-1"
-              >
-                <h3 className="text-lg font-semibold text-white mb-2">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-20 relative z-10 border-t border-white/10 pt-20">
+            {values.map((v, i) => (
+              <div key={v.title} className="group">
+                <p className="text-brand-accent font-bold tracking-[0.2em] mb-4 text-xs font-display flex items-center gap-4">
+                  <span className="w-8 h-[1px] bg-brand-accent" />
+                  0{i + 1}
+                </p>
+                <h3 className="text-3xl font-display font-bold mb-4 uppercase tracking-tight text-white group-hover:text-brand-magenta transition-colors">
                   {v.title}
                 </h3>
-                <p className="text-stone-400 text-sm leading-relaxed">
+                <p className="text-brand-muted text-lg font-light leading-relaxed">
                   {v.description}
                 </p>
               </div>
             ))}
           </div>
-
-          {/* Team */}
-          <h3 className="text-2xl font-bold text-white mb-8 text-center">
-            Meet the Team
-          </h3>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-            <div className="bg-stone-800 border border-stone-700/60 rounded-2xl p-6 sm:p-8 text-center transition-all duration-300 hover:border-emerald-500/40 hover:-translate-y-1">
-              <div className="w-20 h-20 rounded-full bg-emerald-500/15 border-2 border-emerald-500/30 flex items-center justify-center mx-auto mb-6">
-                <span className="text-emerald-400 text-2xl font-bold">SK</span>
-              </div>
-              <h4 className="text-xl font-bold text-white mb-1">Sushanth Kasturi</h4>
-              <p className="text-emerald-400 text-sm font-medium mb-3">Founder</p>
-              <p className="text-stone-400 text-sm leading-relaxed">
-                A visionary leader with a passion for building scalable AI
-                solutions that deliver measurable business impact.
-              </p>
-            </div>
-            <div className="bg-stone-800 border border-stone-700/60 rounded-2xl p-6 sm:p-8 text-center transition-all duration-300 hover:border-emerald-500/40 hover:-translate-y-1">
-              <div className="w-20 h-20 rounded-full bg-emerald-500/15 border-2 border-emerald-500/30 flex items-center justify-center mx-auto mb-6">
-                <span className="text-emerald-400 text-2xl font-bold">R</span>
-              </div>
-              <h4 className="text-xl font-bold text-white mb-1">Rohith</h4>
-              <p className="text-emerald-400 text-sm font-medium mb-3">Co-Founder</p>
-              <p className="text-stone-400 text-sm leading-relaxed">
-                Passionate about leveraging AI and automation to solve real
-                business problems and architect intelligent systems.
-              </p>
-            </div>
-          </div>
-
-          <div className="text-center mt-10">
-            <Link
-              to="/about"
-              className="inline-block border border-emerald-500 text-emerald-400 hover:bg-emerald-500 hover:text-white font-medium px-6 py-2.5 rounded-xl text-sm transition-all duration-200"
-            >
-              Learn More About Us →
-            </Link>
-          </div>
         </div>
       </section>
 
       {/* ─── CONTACT ─── */}
-      <section id="contact" className="py-20 sm:py-24">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16">
+      <section id="contact" className="px-6 md:px-12">
+        <div className="max-w-7xl mx-auto pt-16">
+          <div className="grid grid-cols-1 lg:grid-cols-5 gap-12 lg:gap-24">
             {/* Info */}
-            <div>
-              <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">
-                Let's Talk Automation
+            <div className="lg:col-span-2">
+              <div className="inline-flex items-center gap-3 px-4 py-2 rounded-full liquid-glass mb-8">
+                <p className="text-[var(--color-brand-accent)] font-bold tracking-[0.3em] uppercase text-xs">
+                  Comms // 04
+                </p>
+              </div>
+              <h2 className="font-display text-5xl md:text-7xl font-bold tracking-tighter uppercase mb-8 text-white">
+                Initiate<br /><span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-accent to-brand-magenta">Sequence</span>
               </h2>
-              <p className="text-stone-400 text-lg leading-relaxed mb-8">
-                Whether you have a specific project in mind or just want to explore
-                what automation can do for your business, we'd love to hear from
-                you. Fill out the form and we'll respond within 24 hours.
+              <p className="text-brand-muted text-xl leading-relaxed mb-12 font-light">
+                Submit your parameters. We run asynchronous operations to review your constraints and respond with an architectural proposal.
               </p>
 
-              <div className="space-y-4">
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-xl bg-emerald-500/10 flex items-center justify-center text-emerald-400 shrink-0">
-                    <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
-                    </svg>
-                  </div>
-                  <a href="mailto:avlokbusiness@gmail.com" className="text-stone-300 text-sm hover:text-emerald-400 transition-colors">avlokbusiness@gmail.com</a>
+              <div className="space-y-8 p-8 liquid-glass rounded-2xl">
+                <div>
+                  <p className="text-white/40 text-xs uppercase tracking-[0.2em] font-bold mb-3 flex items-center gap-2"><span className="w-2 h-2 rounded bg-brand-cyan"></span> Direct Channel</p>
+                  <a href="mailto:avlokbusiness@gmail.com" className="text-xl text-white hover:text-brand-cyan transition-colors block font-display">avlokbusiness@gmail.com</a>
                 </div>
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-xl bg-emerald-500/10 flex items-center justify-center text-emerald-400 shrink-0">
-                    <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z" />
-                    </svg>
-                  </div>
-                  <a href="tel:+919346672015" className="text-stone-300 text-sm hover:text-emerald-400 transition-colors">+91 9346672015</a>
-                </div>
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-xl bg-emerald-500/10 flex items-center justify-center text-emerald-400 shrink-0">
-                    <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" />
-                    </svg>
-                  </div>
-                  <span className="text-stone-300 text-sm">Remote — serving clients globally</span>
+                <div>
+                  <p className="text-white/40 text-xs uppercase tracking-[0.2em] font-bold mb-3 flex items-center gap-2"><span className="w-2 h-2 rounded bg-brand-magenta"></span> Voice Channel</p>
+                  <a href="tel:+919346672015" className="text-xl text-white hover:text-brand-magenta transition-colors block font-display">+91 9346672015</a>
                 </div>
               </div>
             </div>
 
             {/* Form */}
-            {submitted ? (
-              <div className="bg-stone-800 border border-stone-700/60 rounded-2xl p-6 sm:p-8 flex flex-col items-center justify-center text-center">
-                <div className="w-16 h-16 rounded-full bg-emerald-500/15 flex items-center justify-center mb-6">
-                  <svg className="w-8 h-8 text-emerald-400" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
-                  </svg>
+            <div className="lg:col-span-3 liquid-glass rounded-[32px] p-8 md:p-14 relative overflow-hidden">
+              <div className="absolute top-0 right-0 w-64 h-64 bg-brand-cyan/10 blur-[80px] rounded-full pointer-events-none" />
+              {submitted ? (
+                <div className="flex flex-col items-center justify-center text-center h-full min-h-[500px]">
+                  <div className="w-24 h-24 mb-10 rounded-full border border-brand-cyan flex items-center justify-center bg-brand-cyan/10 accent-glow">
+                    <svg className="w-10 h-10 text-brand-cyan" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                    </svg>
+                  </div>
+                  <h3 className="font-display text-4xl font-bold uppercase tracking-tight mb-4 text-white">Received</h3>
+                  <p className="text-brand-muted text-lg mb-12 font-light max-w-sm">
+                    Parameters acknowledged, {form.name}. Our systems are processing your coordinates now.
+                  </p>
+                  <button
+                    onClick={() => { setForm(initialForm); setSubmitted(false); }}
+                    className="text-brand-accent hover:text-white uppercase tracking-[0.2em] text-sm font-bold transition-colors flex items-center gap-2"
+                  >
+                    Transmit Again <span>→</span>
+                  </button>
                 </div>
-                <h3 className="text-2xl font-bold text-white mb-2">Message Sent!</h3>
-                <p className="text-stone-400 mb-6">
-                  Thank you, {form.name}. We'll get back to you within 24 hours.
-                </p>
-                <button
-                  onClick={() => { setForm(initialForm); setSubmitted(false); }}
-                  className="text-emerald-400 hover:text-emerald-300 text-sm font-medium transition-colors"
-                >
-                  Send another message →
-                </button>
-              </div>
-            ) : (
-              <form
-                onSubmit={handleSubmit}
-                className="bg-stone-800 border border-stone-700/60 rounded-2xl p-6 sm:p-8 space-y-5"
-              >
-                <div>
-                  <label htmlFor="home-name" className="block text-sm font-medium text-stone-300 mb-1.5">Full Name</label>
-                  <input id="home-name" name="name" type="text" required value={form.name} onChange={handleChange}
-                    className="w-full bg-stone-900 border border-stone-700 rounded-xl px-4 py-2.5 text-sm text-white placeholder:text-stone-500 focus:outline-none focus:ring-2 focus:ring-emerald-500/50 focus:border-emerald-500 transition-all"
-                    placeholder="John Doe" />
-                </div>
-                <div>
-                  <label htmlFor="home-email" className="block text-sm font-medium text-stone-300 mb-1.5">Email Address</label>
-                  <input id="home-email" name="email" type="email" required value={form.email} onChange={handleChange}
-                    className="w-full bg-stone-900 border border-stone-700 rounded-xl px-4 py-2.5 text-sm text-white placeholder:text-stone-500 focus:outline-none focus:ring-2 focus:ring-emerald-500/50 focus:border-emerald-500 transition-all"
-                    placeholder="john@company.com" />
-                </div>
-                <div>
-                  <label htmlFor="home-biz" className="block text-sm font-medium text-stone-300 mb-1.5">Business Type</label>
-                  <select id="home-biz" name="businessType" required value={form.businessType} onChange={handleChange}
-                    className="w-full bg-stone-900 border border-stone-700 rounded-xl px-4 py-2.5 text-sm text-white focus:outline-none focus:ring-2 focus:ring-emerald-500/50 focus:border-emerald-500 transition-all">
-                    <option value="" disabled>Select your industry</option>
-                    <option value="ecommerce">E-Commerce</option>
-                    <option value="saas">SaaS</option>
-                    <option value="agency">Agency</option>
-                    <option value="healthcare">Healthcare</option>
-                    <option value="finance">Finance</option>
-                    <option value="education">Education</option>
-                    <option value="other">Other</option>
-                  </select>
-                </div>
-                <div>
-                  <label htmlFor="home-msg" className="block text-sm font-medium text-stone-300 mb-1.5">Message</label>
-                  <textarea id="home-msg" name="message" required rows={5} value={form.message} onChange={handleChange}
-                    className="w-full bg-stone-900 border border-stone-700 rounded-xl px-4 py-2.5 text-sm text-white placeholder:text-stone-500 focus:outline-none focus:ring-2 focus:ring-emerald-500/50 focus:border-emerald-500 transition-all resize-none"
-                    placeholder="Tell us about your project or the challenges you're facing..." />
-                </div>
-                <button type="submit"
-                  className="w-full bg-emerald-500 hover:bg-emerald-600 text-white font-semibold py-3 rounded-xl transition-colors duration-200 shadow-lg shadow-emerald-500/20 hover:shadow-emerald-500/30">
-                  Send Message
-                </button>
-              </form>
-            )}
-          </div>
-
-          <div className="text-center mt-10">
-            <Link
-              to="/contact"
-              className="inline-block border border-emerald-500 text-emerald-400 hover:bg-emerald-500 hover:text-white font-medium px-6 py-2.5 rounded-xl text-sm transition-all duration-200"
-            >
-              Go to Contact Page →
-            </Link>
+              ) : (
+                <form onSubmit={handleSubmit} className="space-y-10 relative z-10">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+                    <div className="group">
+                      <label htmlFor="home-name" className="block text-xs font-bold tracking-[0.2em] text-white/40 uppercase mb-4 group-focus-within:text-brand-cyan transition-colors">Operator Name</label>
+                      <input id="home-name" name="name" type="text" required value={form.name} onChange={handleChange}
+                        className="w-full bg-black/20 border border-white/10 px-5 py-4 rounded-xl text-white placeholder:text-white/20 focus:outline-none focus:border-brand-cyan focus:bg-white/5 transition-all"
+                        placeholder="John Doe" />
+                    </div>
+                    <div className="group">
+                      <label htmlFor="home-email" className="block text-xs font-bold tracking-[0.2em] text-white/40 uppercase mb-4 group-focus-within:text-brand-cyan transition-colors">Return Vector (Email)</label>
+                      <input id="home-email" name="email" type="email" required value={form.email} onChange={handleChange}
+                        className="w-full bg-black/20 border border-white/10 px-5 py-4 rounded-xl text-white placeholder:text-white/20 focus:outline-none focus:border-brand-cyan focus:bg-white/5 transition-all"
+                        placeholder="john@entity.com" />
+                    </div>
+                  </div>
+                  <div className="group">
+                    <label htmlFor="home-biz" className="block text-xs font-bold tracking-[0.2em] text-white/40 uppercase mb-4 group-focus-within:text-brand-cyan transition-colors">Entity Classification</label>
+                    <select id="home-biz" name="businessType" required value={form.businessType} onChange={handleChange}
+                      className="w-full bg-black/20 border border-white/10 px-5 py-4 rounded-xl text-white focus:outline-none focus:border-brand-cyan focus:bg-white/5 transition-all appearance-none cursor-pointer">
+                      <option value="" disabled className="bg-black text-white/50">Select category</option>
+                      <option value="ecommerce" className="bg-[#0B0B1A]">Digital Commerce</option>
+                      <option value="saas" className="bg-[#0B0B1A]">Software (SaaS)</option>
+                      <option value="agency" className="bg-[#0B0B1A]">Agency / Services</option>
+                      <option value="healthcare" className="bg-[#0B0B1A]">Healthcare</option>
+                      <option value="finance" className="bg-[#0B0B1A]">Financial</option>
+                      <option value="other" className="bg-[#0B0B1A]">Other Vector</option>
+                    </select>
+                  </div>
+                  <div className="group">
+                    <label htmlFor="home-msg" className="block text-xs font-bold tracking-[0.2em] text-white/40 uppercase mb-4 group-focus-within:text-brand-cyan transition-colors">Operational Parameters</label>
+                    <textarea id="home-msg" name="message" required rows={5} value={form.message} onChange={handleChange}
+                      className="w-full bg-black/20 border border-white/10 px-5 py-4 rounded-xl text-white placeholder:text-white/20 focus:outline-none focus:border-brand-cyan focus:bg-white/5 transition-all resize-none"
+                      placeholder="Specify the friction points you need eliminated..." />
+                  </div>
+                  <button type="submit"
+                    className="group relative w-full overflow-hidden rounded-xl bg-white/5 border border-white/10 font-bold uppercase tracking-[0.2em] text-sm py-6 text-white hover:border-transparent transition-all duration-300">
+                    <div className="absolute inset-0 bg-gradient-to-r from-brand-cyan via-brand-accent to-brand-magenta opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                    <span className="relative z-10 group-hover:drop-shadow-md">Execute Transmission</span>
+                  </button>
+                </form>
+              )}
+            </div>
           </div>
         </div>
       </section>
-
-      {/* ─── FINAL CTA ─── */}
-      <section className="py-20 sm:py-24">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">
-            Ready to Transform Your Business?
-          </h2>
-          <p className="max-w-xl mx-auto text-stone-400 text-lg mb-8">
-            Let us show you exactly how automation can save your team 20+ hours
-            per week. No obligations — just a conversation.
-          </p>
-          <Link
-            to="/contact"
-            className="inline-block bg-emerald-500 hover:bg-emerald-600 text-white font-semibold px-8 py-3.5 rounded-xl text-base transition-colors duration-200 shadow-lg shadow-emerald-500/20 hover:shadow-emerald-500/30"
-          >
-            Get Started
-          </Link>
-        </div>
-      </section>
-    </>
+    </div>
   );
 }
