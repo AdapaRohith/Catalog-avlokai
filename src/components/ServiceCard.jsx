@@ -2,51 +2,55 @@ import { Link } from "react-router-dom";
 
 export default function ServiceCard({ service, index }) {
   return (
-    <div className="group liquid-glass rounded-2xl overflow-hidden flex flex-col transition-all duration-500 hover:-translate-y-2 relative border border-white/10 hover:border-brand-cyan/50">
-      <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none" />
-
+    <div className="group warm-card rounded-2xl overflow-hidden flex flex-col">
       {/* Image */}
-      <div className="relative h-56 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-brand-bg/50 to-brand-bg z-10" />
+      <div className="relative h-52 overflow-hidden">
         <img
           src={service.image}
           alt={service.imageAlt || service.name}
-          className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-80 mix-blend-luminosity group-hover:mix-blend-normal"
+          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
           loading="lazy"
         />
-        <div className="absolute top-4 right-4 z-20">
-          <span className="text-brand-magenta font-display font-bold text-xs tracking-widest bg-black/50 px-3 py-1 rounded-full border border-white/10 backdrop-blur-md">
-            0{index !== undefined ? index + 1 : 1}
+        <div className="absolute inset-0 bg-gradient-to-t from-warm-surface via-transparent to-transparent" />
+        {service.category && (
+          <span className="absolute top-4 left-4 text-xs font-bold tracking-wider uppercase bg-warm-accent/90 text-stone-900 px-3 py-1 rounded-full">
+            {service.category}
           </span>
-        </div>
-        <h3 className="absolute bottom-4 left-6 right-6 text-2xl font-display font-bold text-white z-20 group-hover:text-brand-cyan transition-colors">
-          {service.name}
-        </h3>
+        )}
       </div>
 
       {/* Content */}
-      <div className="p-6 flex flex-col flex-1 relative z-20">
-        <p className="text-brand-muted text-sm font-light leading-relaxed mb-6 flex-1">
+      <div className="p-6 flex flex-col flex-1">
+        <h3 className="text-xl font-display font-bold text-white mb-2 group-hover:text-warm-accent transition-colors">
+          {service.name}
+        </h3>
+        <p className="text-warm-muted text-sm leading-relaxed mb-5 flex-1">
           {service.shortDescription}
         </p>
 
-        <div className="mb-8">
-          <ul className="space-y-3">
-            {service.deliverables.slice(0, 3).map((item, i) => (
-              <li key={i} className="text-white/80 text-sm font-light flex items-start gap-3">
-                <span className="text-brand-cyan mt-1 text-[10px]">■</span>
-                {item}
-              </li>
-            ))}
-          </ul>
+        <div className="mb-5 flex flex-wrap gap-2">
+          {service.deliverables?.slice(0, 3).map((item) => (
+            <span
+              key={item}
+              className="text-xs px-2.5 py-1 rounded-full border border-warm-border text-warm-muted"
+            >
+              {item}
+            </span>
+          ))}
         </div>
 
-        <Link
-          to={`/services/${service.id}`}
-          className="block text-center border border-white/10 bg-white/5 hover:bg-brand-magenta hover:border-brand-magenta text-white uppercase tracking-widest text-xs font-bold py-4 rounded-xl transition-all duration-300 hover-lift hover:shadow-[0_0_20px_rgba(255,20,147,0.4)]"
-        >
-          View Configuration
-        </Link>
+        <div className="flex items-center justify-between pt-4 border-t border-warm-border">
+          <span className="text-warm-accent font-bold text-sm">
+            From {service.startingPrice}
+          </span>
+          <Link
+            to={`/services/${service.id}`}
+            className="text-sm font-medium text-white hover:text-warm-accent transition-colors flex items-center gap-1.5"
+          >
+            Learn more
+            <span className="transition-transform group-hover:translate-x-1">→</span>
+          </Link>
+        </div>
       </div>
     </div>
   );

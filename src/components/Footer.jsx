@@ -1,41 +1,40 @@
 import { Link } from "react-router-dom";
 
 const quickLinks = [
-  { to: "/", label: "Index" },
-  { to: "/services", label: "Capabilities" },
-  { to: "/pricing", label: "Investment" },
-  { to: "/about", label: "Studio" },
-  { to: "/contact", label: "Initiate" },
+  { to: "/", label: "Home" },
+  { to: "/services", label: "Services" },
+  { to: "/pricing", label: "Pricing" },
+  { to: "/about", label: "About" },
+  { to: "/contact", label: "Contact" },
 ];
 
-export default function Footer({ className }) {
+export default function Footer() {
   return (
-    <footer className={`border-t border-white/10 mt-32 relative overflow-hidden ${className}`}>
-      <div className="absolute inset-0 bg-gradient-to-t from-brand-magenta/5 to-transparent pointer-events-none" />
-      <div className="max-w-7xl mx-auto px-6 md:px-12 py-24 relative z-10">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-16 md:gap-8">
+    <footer className="border-t border-warm-border mt-24 bg-warm-surface/50">
+      <div className="max-w-7xl mx-auto px-6 md:px-12 py-16">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-12 md:gap-8">
           {/* Brand */}
           <div className="md:col-span-2">
-            <h3 className="font-display font-bold text-3xl mb-6 tracking-tighter uppercase text-white group">
-              Avlok<span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-cyan to-brand-magenta">AI</span><span className="text-brand-magenta">.</span>
+            <h3 className="font-display font-bold text-2xl mb-4 text-white">
+              Avlok<span className="text-warm-accent">AI</span>
             </h3>
-            <p className="text-brand-muted text-base leading-relaxed max-w-sm font-light">
-              We design and implement autonomous systems for modern enterprises.
-              Eliminate friction. Deploy intelligence. <span className="text-white font-medium">Scale indefinitely.</span>
+            <p className="text-warm-muted text-sm leading-relaxed max-w-sm">
+              We design and implement intelligent automation systems for modern businesses.
+              Save time, reduce errors, and scale your operations effortlessly.
             </p>
           </div>
 
-          {/* Layout Map */}
+          {/* Navigation */}
           <div>
-            <h4 className="text-brand-accent font-display font-bold text-xs mb-8 uppercase tracking-[0.2em]">
-              Directory
+            <h4 className="text-warm-accent text-xs font-bold uppercase tracking-widest mb-6">
+              Navigate
             </h4>
-            <ul className="space-y-4">
+            <ul className="space-y-3">
               {quickLinks.map((link) => (
                 <li key={link.to}>
                   <Link
                     to={link.to}
-                    className="text-white/60 hover:text-brand-cyan text-xs uppercase tracking-[0.1em] transition-colors duration-300 block w-fit hover:drop-shadow-[0_0_8px_rgba(0,255,255,0.5)]"
+                    className="text-warm-muted hover:text-white text-sm transition-colors duration-200"
                   >
                     {link.label}
                   </Link>
@@ -44,39 +43,36 @@ export default function Footer({ className }) {
             </ul>
           </div>
 
-          {/* Connect */}
+          {/* Contact */}
           <div>
-            <h4 className="text-brand-magenta font-display font-bold text-xs mb-8 uppercase tracking-[0.2em]">
-              Communicate
+            <h4 className="text-warm-accent text-xs font-bold uppercase tracking-widest mb-6">
+              Get in Touch
             </h4>
-            <div className="space-y-4">
+            <div className="space-y-3">
               <a
                 href="mailto:avlokbusiness@gmail.com"
-                className="block text-white/60 hover:text-white text-xs uppercase tracking-[0.05em] transition-colors duration-300 w-fit"
+                className="block text-warm-muted hover:text-white text-sm transition-colors duration-200"
               >
                 avlokbusiness@gmail.com
               </a>
               <a
                 href="tel:+919346672015"
-                className="block text-white/60 hover:text-white text-xs tracking-[0.1em] transition-colors duration-300 w-fit"
+                className="block text-warm-muted hover:text-white text-sm transition-colors duration-200"
               >
                 +91 9346672015
               </a>
-              <div className="pt-6 flex gap-6">
-                <a href="#" className="text-white/40 hover:text-brand-cyan transition-colors uppercase tracking-widest text-xs font-bold">X(TW)</a>
-                <a href="#" className="text-white/40 hover:text-brand-accent transition-colors uppercase tracking-widest text-xs font-bold">IN</a>
-                <a href="#" className="text-white/40 hover:text-brand-magenta transition-colors uppercase tracking-widest text-xs font-bold">GH</a>
+              <div className="pt-4 flex gap-5">
+                <a href="#" className="text-warm-subtle hover:text-warm-accent transition-colors text-sm font-medium">Twitter</a>
+                <a href="#" className="text-warm-subtle hover:text-warm-accent transition-colors text-sm font-medium">LinkedIn</a>
+                <a href="#" className="text-warm-subtle hover:text-warm-accent transition-colors text-sm font-medium">GitHub</a>
               </div>
             </div>
           </div>
         </div>
 
-        <div className="mt-24 pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4 text-white/40 text-[10px] tracking-[0.2em] uppercase font-bold">
-          <p>&copy; {new Date().getFullYear()} AvlokAI</p>
-          <div className="flex gap-4">
-            <span className="w-1.5 h-1.5 bg-brand-magenta rounded-full animate-pulse opacity-80" />
-            <p className="text-white/60">Operate Beyond Limits</p>
-          </div>
+        <div className="mt-16 pt-6 border-t border-warm-border flex flex-col md:flex-row justify-between items-center gap-4 text-warm-subtle text-xs">
+          <p>&copy; {new Date().getFullYear()} AvlokAI. All rights reserved.</p>
+          <p>Automate. Simplify. Scale.</p>
         </div>
       </div>
     </footer>
