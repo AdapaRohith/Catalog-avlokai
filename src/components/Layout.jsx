@@ -1,12 +1,17 @@
 import { Outlet } from "react-router-dom";
-import Navbar from "./Navbar";
 import Footer from "./Footer";
+import Navbar from "./Navbar";
+import PageTransitionOverlay from "./PageTransitionOverlay";
+import ScrollToTop from "./ScrollToTop";
 
 export default function Layout() {
   return (
-    <div className="min-h-screen flex flex-col relative selection:bg-warm-accent selection:text-stone-900">
+    <div className="relative min-h-screen overflow-hidden">
+      <div className="noise-overlay fixed inset-0 -z-10" />
+      <PageTransitionOverlay />
+      <ScrollToTop />
       <Navbar />
-      <main className="flex-1 w-full relative">
+      <main className="main-stage relative z-10 flex-1 pt-24 sm:pt-28">
         <Outlet />
       </main>
       <Footer />

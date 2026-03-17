@@ -1,12 +1,13 @@
-import { useState, useEffect } from "react";
-import { Link, NavLink, useLocation } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { useLocation } from "react-router-dom";
 import logo from "../assets/AvlokAi.png";
+import { TransitionLink, TransitionNavLink } from "./TransitionLink";
 
 const navLinks = [
   { to: "/", label: "Home" },
-  { to: "/services", label: "Services" },
+  { to: "/services", label: "Systems" },
   { to: "/pricing", label: "Pricing" },
-  { to: "/about", label: "About" },
+  { to: "/about", label: "Why AvlokAI" },
   { to: "/contact", label: "Contact" },
 ];
 
@@ -20,98 +21,115 @@ export default function Navbar() {
   }, [location.pathname]);
 
   useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 20);
-    window.addEventListener("scroll", handleScroll);
+    const handleScroll = () => setScrolled(window.scrollY > 24);
+    handleScroll();
+    window.addEventListener("scroll", handleScroll, { passive: true });
+
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   return (
-    <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled
-          ? "bg-warm-bg/90 backdrop-blur-xl shadow-lg shadow-black/10 border-b border-warm-border"
-          : "bg-transparent"
-      }`}
-    >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-18">
-          {/* Logo */}
-          <Link to="/" className="flex items-center gap-3 shrink-0">
-            <img src={logo} alt="AvlokAI" className="h-14 w-auto object-contain" />
-          </Link>
+    <header className="fixed inset-x-0 top-0 z-50 px-4 pt-4 sm:px-6">
+      <div
+        className={`site-container rounded-[28px] transition-all duration-500 ${
+          scrolled
+            ? "glass-panel-strong border-white/12"
+            : "border border-white/6 bg-white/[0.03] backdrop-blur-xl"
+        }`}
+      >
+        <div className="flex items-center justify-between px-4 py-3 sm:px-6">
+          <TransitionLink to="/" className="flex items-center gap-4">
+            <div className="rounded-2xl border border-white/10 bg-white/5 p-2.5 shadow-[0_18px_45px_rgba(4,9,24,0.28)]">
+              <img src={logo} alt="AvlokAI" className="h-10 w-10 rounded-xl object-contain sm:h-11 sm:w-11" />
+            </div>
+            <div>
+              <div className="text-sm font-extrabold uppercase tracking-[0.28em] text-slate-200">AvlokAI</div>
+              <div className="text-xs uppercase tracking-[0.24em] text-slate-500">AI Growth Systems</div>
+            </div>
+          </TransitionLink>
 
-          {/* Desktop nav */}
-          <div className="hidden md:flex items-center gap-1">
+          <nav className="hidden items-center gap-1 lg:flex">
             {navLinks.map((link) => (
-              <NavLink
+              <TransitionNavLink
                 key={link.to}
                 to={link.to}
                 end={link.to === "/"}
                 className={({ isActive }) =>
-                  `px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 ${
+                  `rounded-full px-4 py-2.5 text-sm font-semibold transition-all duration-300 ${
                     isActive
-                      ? "bg-warm-accent/15 text-warm-accent"
-                      : "text-warm-muted hover:text-white hover:bg-white/5"
+                      ? "bg-white/10 text-white shadow-[inset_0_0_0_1px_rgba(255,255,255,0.08)]"
+                      : "text-slate-300 hover:bg-white/6 hover:text-white"
                   }`
                 }
               >
                 {link.label}
-              </NavLink>
+              </TransitionNavLink>
             ))}
-            <Link
-              to="/contact"
-              className="ml-4 px-5 py-2.5 bg-warm-accent hover:bg-warm-highlight text-stone-900 rounded-lg text-sm font-bold transition-all duration-200"
+          </nav>
+
+          <div className="hidden items-center gap-3 lg:flex">
+            <a
+              href="mailto:avlokbusiness@gmail.com"
+              className="rounded-full border border-white/10 px-4 py-2.5 text-sm font-semibold text-slate-300 transition hover:border-[rgba(153,225,255,0.24)] hover:text-white"
             >
-              Get Started
-            </Link>
+              avlokbusiness@gmail.com
+            </a>
+            <TransitionLink to="/contact" className="button-primary px-5 py-3">
+              Start a build
+            </TransitionLink>
           </div>
 
-          {/* Mobile toggle */}
           <button
-            onClick={() => setOpen(!open)}
-            className="md:hidden p-2 text-warm-muted hover:text-warm-accent transition-colors"
-            aria-label="Toggle navigation"
+            type="button"
+            aria-label="Open navigation"
+            className="inline-flex h-12 w-12 items-center justify-center rounded-full border border-white/10 bg-white/5 text-slate-200 transition hover:bg-white/10 lg:hidden"
+            onClick={() => setOpen((value) => !value)}
           >
-            <div className="flex flex-col gap-1.5 items-end">
-              <span className={`h-[2px] bg-current transition-all duration-300 rounded ${open ? "w-6 rotate-45 translate-y-[8px]" : "w-6"}`} />
-              <span className={`h-[2px] bg-current transition-all duration-300 rounded ${open ? "w-0 opacity-0" : "w-4"}`} />
-              <span className={`h-[2px] bg-current transition-all duration-300 rounded ${open ? "w-6 -rotate-45 -translate-y-[8px]" : "w-5"}`} />
-            </div>
+            <span className="flex flex-col gap-1.5">
+              <span className={`h-0.5 w-5 rounded-full bg-current transition ${open ? "translate-y-2 rotate-45" : ""}`} />
+              <span className={`h-0.5 w-5 rounded-full bg-current transition ${open ? "opacity-0" : ""}`} />
+              <span className={`h-0.5 w-5 rounded-full bg-current transition ${open ? "-translate-y-2 -rotate-45" : ""}`} />
+            </span>
           </button>
         </div>
-      </div>
 
-      {/* Mobile menu */}
-      <div
-        className={`md:hidden absolute top-full left-0 w-full bg-warm-bg/95 backdrop-blur-xl border-t border-warm-border transition-all duration-400 overflow-hidden ${
-          open ? "max-h-[500px] opacity-100" : "max-h-0 opacity-0"
-        }`}
-      >
-        <div className="px-6 py-6 flex flex-col gap-2">
-          {navLinks.map((link) => (
-            <NavLink
-              key={link.to}
-              to={link.to}
-              end={link.to === "/"}
-              className={({ isActive }) =>
-                `block px-4 py-3 rounded-lg text-sm font-medium transition-all duration-200 ${
-                  isActive
-                    ? "bg-warm-accent/15 text-warm-accent"
-                    : "text-warm-muted hover:text-white hover:bg-white/5"
-                }`
-              }
-            >
-              {link.label}
-            </NavLink>
-          ))}
-          <Link
-            to="/contact"
-            className="mt-2 px-5 py-3 bg-warm-accent hover:bg-warm-highlight text-stone-900 rounded-lg text-sm font-bold text-center transition-all duration-200"
-          >
-            Get Started
-          </Link>
+        <div
+          className={`overflow-hidden transition-all duration-500 lg:hidden ${
+            open ? "max-h-[420px] opacity-100" : "max-h-0 opacity-0"
+          }`}
+        >
+          <div className="border-t border-white/10 px-4 py-4 sm:px-6">
+            <nav className="grid gap-2">
+              {navLinks.map((link) => (
+                <TransitionNavLink
+                  key={link.to}
+                  to={link.to}
+                  end={link.to === "/"}
+                  className={({ isActive }) =>
+                    `rounded-2xl px-4 py-3 text-sm font-semibold transition ${
+                      isActive ? "bg-white/10 text-white" : "bg-white/[0.03] text-slate-300 hover:bg-white/8 hover:text-white"
+                    }`
+                  }
+                >
+                  {link.label}
+                </TransitionNavLink>
+              ))}
+            </nav>
+
+            <div className="mt-4 grid gap-3">
+              <a
+                href="mailto:avlokbusiness@gmail.com"
+                className="rounded-2xl border border-white/10 px-4 py-3 text-sm font-semibold text-slate-300"
+              >
+                avlokbusiness@gmail.com
+              </a>
+              <TransitionLink to="/contact" className="button-primary w-full">
+                Start a build
+              </TransitionLink>
+            </div>
+          </div>
         </div>
       </div>
-    </nav>
+    </header>
   );
 }

@@ -1,153 +1,128 @@
-const values = [
+import Reveal from "../components/Reveal";
+
+const principles = [
   {
-    title: "Results-Driven",
-    description:
-      "We measure success by the time saved and revenue generated — not the number of tools deployed.",
+    title: "Premium presence",
+    description: "Look bigger, sharper, and more valuable every time a customer interacts with your business.",
   },
   {
-    title: "Custom-Built",
-    description:
-      "No cookie-cutter templates. Every solution is architected around your specific business processes and goals.",
+    title: "Better conversion",
+    description: "Turn attention into action with cleaner messaging, stronger hierarchy, and smarter flow.",
   },
   {
-    title: "End-to-End Support",
-    description:
-      "From strategy to deployment to ongoing optimization, we're with you at every step of the journey.",
+    title: "Smoother trust",
+    description: "Subtle motion makes the experience feel more premium and keeps visitors engaged longer.",
   },
   {
-    title: "Future-Proof",
+    title: "Less busywork",
+    description: "Automation handles the repetitive work so your team can focus on selling and delivering.",
+  },
+];
+
+const team = [
+  {
+    name: "Sushanth Kasturi",
+    role: "Founder",
+    initials: "SK",
     description:
-      "We build on modern, scalable platforms that grow with your business and adapt as technology evolves.",
+      "Leads growth-focused systems that help businesses sell harder and scale with confidence.",
+  },
+  {
+    name: "Rohith",
+    role: "Co-Founder",
+    initials: "R",
+    description:
+      "Builds the automation backbone that turns business workflows into reliable revenue systems.",
   },
 ];
 
 export default function About() {
   return (
-    <div className="min-h-screen text-warm-text">
-      {/* Hero */}
-      <section className="relative pt-32 pb-20 sm:pt-40 sm:pb-24 border-b border-warm-border">
-        <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-warm-accent/5 rounded-full blur-[150px] pointer-events-none -z-10" />
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl relative z-10">
-            <h1 className="text-5xl sm:text-6xl font-display font-extrabold text-white mb-6 tracking-tight fade-in-up delay-100">
-              About <span className="text-warm-gradient">AvlokAI</span>
+    <div className="page-shell pb-10">
+      <section className="site-container py-6 sm:py-10">
+        <Reveal>
+          <div className="glass-panel-strong rounded-[36px] px-6 py-8 sm:px-10 sm:py-10">
+            <h1 className="max-w-4xl text-4xl font-semibold text-white sm:text-6xl">
+              AvlokAI helps ambitious businesses sell faster, serve better, and scale smoother.
             </h1>
-            <p className="text-warm-muted text-lg sm:text-xl leading-relaxed mb-6 fade-in-up delay-200">
-              AvlokAI is an automation-first technology studio that helps
-              businesses eliminate manual bottlenecks through AI-powered systems.
-            </p>
-            <p className="text-warm-subtle text-base leading-relaxed fade-in-up delay-300">
-              We believe that every repetitive process in a business can — and
-              should — be automated, freeing humans to do what they do best:
-              think creatively and build relationships. Founded in 2024, we've helped
-              startups, agencies, and mid-size companies save thousands of hours by
-              designing intelligent workflows that run on autopilot.
+            <p className="mt-5 max-w-2xl text-sm leading-8 text-slate-300 sm:text-base">
+              We combine strategy, design, AI, and automation to build systems that move sales, support, and operations forward.
             </p>
           </div>
+        </Reveal>
+      </section>
+
+      <section className="site-container py-10 sm:py-14">
+        <div className="grid gap-6 lg:grid-cols-[1.05fr_0.95fr]">
+          <Reveal>
+            <div className="catalog-card h-full p-6 sm:p-8">
+              <h2 className="text-4xl font-semibold text-white">Why clients choose AvlokAI.</h2>
+              <p className="mt-5 text-sm leading-8 text-slate-300 sm:text-base">
+                Because strong positioning gets attention, clear messaging drives action, and smart systems keep the business moving after the first interaction.
+              </p>
+              <p className="mt-5 text-sm leading-8 text-slate-400">
+                We do not just polish surfaces. We help businesses win more trust, generate more demand, and reduce manual work.
+              </p>
+            </div>
+          </Reveal>
+
+          <Reveal delay={90}>
+            <div className="catalog-card h-full p-6 sm:p-8">
+              <h2 className="mb-5 text-4xl font-semibold text-white">What you get when we build.</h2>
+              <div className="space-y-4">
+                {[
+                  "Sharper positioning that makes the offer easier to buy",
+                  "Premium visuals that instantly raise perceived value",
+                  "Automation that keeps leads and ops moving",
+                  "A system built to keep improving after launch",
+                ].map((item) => (
+                  <div key={item} className="rounded-[24px] border border-white/10 bg-white/[0.03] p-5">
+                    <div className="text-base leading-7 text-slate-200">{item}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </Reveal>
         </div>
       </section>
 
-      {/* Mission & Vision */}
-      <section className="py-20 sm:py-28 border-b border-warm-border">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div className="warm-card rounded-2xl p-8 sm:p-10 group">
-              <h2 className="text-xs font-bold tracking-widest uppercase text-warm-accent mb-6">
-                Our Mission
-              </h2>
-              <p className="text-white text-lg leading-relaxed">
-                To make enterprise-grade automation accessible to every business,
-                regardless of size. We democratize AI-powered systems so that
-                small teams can compete with the efficiency of large
-                organizations.
-              </p>
-            </div>
-            <div className="warm-card rounded-2xl p-8 sm:p-10 group">
-              <h2 className="text-xs font-bold tracking-widest uppercase text-warm-accent mb-6">
-                Our Vision
-              </h2>
-              <p className="text-white text-lg leading-relaxed">
-                A world where businesses of all sizes leverage intelligent
-                automation to operate at peak efficiency — where human talent is
-                amplified by AI, not replaced by it.
-              </p>
-            </div>
-          </div>
+      <section className="site-container py-10 sm:py-14">
+        <div className="grid gap-6 sm:grid-cols-2 xl:grid-cols-4">
+          {principles.map((principle, index) => (
+            <Reveal key={principle.title} delay={index * 80}>
+              <article className="catalog-card h-full p-6">
+                <h3 className="text-2xl font-semibold text-white">{principle.title}</h3>
+                <p className="mt-4 text-sm leading-7 text-slate-300">{principle.description}</p>
+              </article>
+            </Reveal>
+          ))}
         </div>
       </section>
 
-      {/* Why Choose Us */}
-      <section className="py-20 sm:py-28 border-b border-warm-border">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl sm:text-4xl font-display font-bold text-white mb-12 text-center">
-            Why Work with Us
-          </h2>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-            {values.map((v, i) => (
-              <div
-                key={v.title}
-                className="warm-card rounded-2xl p-8 group"
-              >
-                <span className="text-warm-accent font-display text-4xl font-extrabold opacity-30 group-hover:opacity-60 transition-opacity block mb-4">
-                  {String(i + 1).padStart(2, "0")}
-                </span>
-                <h3 className="text-xl font-display font-bold text-white mb-3 group-hover:text-warm-accent transition-colors">
-                  {v.title}
-                </h3>
-                <p className="text-warm-muted text-base leading-relaxed">
-                  {v.description}
-                </p>
-              </div>
-            ))}
+      <section className="site-container py-10 sm:py-14">
+        <Reveal className="mb-8">
+          <div>
+            <h2 className="text-3xl font-semibold text-white sm:text-4xl">Meet the team behind the growth systems.</h2>
           </div>
-        </div>
-      </section>
+        </Reveal>
 
-      {/* Founders */}
-      <section className="py-20 sm:py-28">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl sm:text-4xl font-display font-bold text-white mb-12 text-center">
-            Leadership
-          </h2>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-            {/* Founder */}
-            <div className="group warm-card rounded-2xl p-8 text-center">
-              <div className="w-24 h-24 mx-auto mb-6 rounded-full bg-warm-accent/15 border-2 border-warm-accent/30 flex items-center justify-center">
-                <span className="text-warm-accent font-display text-3xl font-bold">SK</span>
-              </div>
-              <h3 className="text-2xl font-display font-bold text-white mb-1 group-hover:text-warm-accent transition-colors">
-                Sushanth Kasturi
-              </h3>
-              <p className="text-warm-accent text-xs font-bold uppercase tracking-widest mb-4">
-                Founder
-              </p>
-              <p className="text-warm-muted text-sm leading-relaxed">
-                A visionary leader with a passion for building scalable AI
-                solutions. Sushanth drives the strategic direction of AvlokAI,
-                ensuring every product delivers measurable business impact.
-              </p>
-            </div>
-
-            {/* Co-Founder */}
-            <div className="group warm-card rounded-2xl p-8 text-center">
-              <div className="w-24 h-24 mx-auto mb-6 rounded-full bg-warm-accent/15 border-2 border-warm-accent/30 flex items-center justify-center">
-                <span className="text-warm-accent font-display text-3xl font-bold">R</span>
-              </div>
-              <h3 className="text-2xl font-display font-bold text-white mb-1 group-hover:text-warm-accent transition-colors">
-                Rohith
-              </h3>
-              <p className="text-warm-accent text-xs font-bold uppercase tracking-widest mb-4">
-                Co-Founder
-              </p>
-              <p className="text-warm-muted text-sm leading-relaxed">
-                Passionate about leveraging AI and automation to solve real
-                business problems. Rohith architects the systems that power
-                AvlokAI's automation solutions.
-              </p>
-            </div>
-          </div>
+        <div className="grid gap-6 lg:grid-cols-2">
+          {team.map((person, index) => (
+            <Reveal key={person.name} delay={index * 90}>
+              <article className="catalog-card h-full p-6 sm:p-8">
+                <div className="mb-6 flex items-center gap-4">
+                  <div className="flex h-16 w-16 items-center justify-center rounded-[22px] border border-white/10 bg-white/[0.05] text-2xl font-bold text-white">
+                    {person.initials}
+                  </div>
+                  <div>
+                    <div className="text-2xl font-semibold text-white">{person.name}</div>
+                    <div className="mt-1 text-xs font-extrabold uppercase tracking-[0.24em] text-slate-500">{person.role}</div>
+                  </div>
+                </div>
+                <p className="text-sm leading-8 text-slate-300">{person.description}</p>
+              </article>
+            </Reveal>
+          ))}
         </div>
       </section>
     </div>
