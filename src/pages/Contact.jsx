@@ -42,7 +42,8 @@ export default function Contact() {
       form.message,
     ].join("\n");
 
-    window.location.href = `mailto:avlokbusiness@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=avlokbusiness@gmail.com&su=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    window.open(gmailUrl, "_blank");
   };
 
   return (
