@@ -1,5 +1,7 @@
 import { useState } from "react";
+import { useSearchParams } from "react-router-dom";
 import Reveal from "../components/Reveal";
+import services from "../data/services";
 
 const initialForm = {
   name: "",
@@ -10,15 +12,29 @@ const initialForm = {
 };
 
 const projectTracks = [
+  "Book a demo",
   "Business automation",
   "Customer journey redesign",
   "AI assistant",
   "CRM workflow",
   "Custom AI system",
+  "Custom solution",
 ];
 
 export default function Contact() {
-  const [form, setForm] = useState(initialForm);
+  const [searchParams] = useSearchParams();
+  const requestedServiceId = searchParams.get("service");
+  const requestedService = services.find((service) => service.id === requestedServiceId);
+
+  const [form, setForm] = useState(() => ({
+    ...initialForm,
+    projectType: requestedServiceId ? "Book a demo" : "",
+    message: requestedService
+      ? `I want to book a demo for ${requestedService.name}.`
+      : requestedServiceId === "custom-solution"
+        ? "I want to book a demo for a custom automation solution."
+        : "",
+  }));
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -42,7 +58,7 @@ export default function Contact() {
       form.message,
     ].join("\n");
 
-    const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=avlokbusiness@gmail.com&su=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=contact@avlokai.com&su=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
     window.open(gmailUrl, "_blank");
   };
 
@@ -61,7 +77,7 @@ export default function Contact() {
 
               <div className="mt-8 grid gap-4">
                 {[
-                  { label: "Email", value: "avlokbusiness@gmail.com" },
+                  { label: "Email", value: "contact@avlokai.com" },
                   { label: "Phone", value: "+91 9346672015" },
                   { label: "Response goal", value: "Within 24 hours" },
                 ].map((item) => (

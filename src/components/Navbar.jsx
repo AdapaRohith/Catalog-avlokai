@@ -69,10 +69,10 @@ export default function Navbar() {
 
           <div className="hidden items-center gap-3 lg:flex">
             <a
-              href="mailto:avlokbusiness@gmail.com"
+              href="mailto:contact@avlokai.com"
               className="rounded-full border border-white/10 px-4 py-2.5 text-sm font-semibold text-slate-300 transition hover:border-[rgba(153,225,255,0.24)] hover:text-white"
             >
-              avlokbusiness@gmail.com
+              contact@avlokai.com
             </a>
             <TransitionLink to="/contact" className="button-primary px-5 py-3">
               Start a build
@@ -118,10 +118,10 @@ export default function Navbar() {
 
             <div className="mt-4 grid gap-3">
               <a
-                href="mailto:avlokbusiness@gmail.com"
+                href="mailto:contact@avlokai.com"
                 className="rounded-2xl border border-white/10 px-4 py-3 text-sm font-semibold text-slate-300"
               >
-                avlokbusiness@gmail.com
+                contact@avlokai.com
               </a>
               <TransitionLink to="/contact" className="button-primary w-full">
                 Start a build

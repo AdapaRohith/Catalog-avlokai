@@ -2,15 +2,23 @@ import { useDeferredValue, useState } from "react";
 import Reveal from "../components/Reveal";
 import ServiceCard from "../components/ServiceCard";
 import { TransitionLink } from "../components/TransitionLink";
-import services, { serviceCategories } from "../data/services";
+import services, { serviceCategories, serviceIndustries } from "../data/services";
+
+const SERVICES_PER_PAGE = 10;
 
 export default function Services() {
-  const [activeCategory, setActiveCategory] = useState("All");
+  const [activeIndustry, setActiveIndustry] = useState(serviceCategories[0]);
+  const [page, setPage] = useState(0);
   const [query, setQuery] = useState("");
   const deferredQuery = useDeferredValue(query.trim().toLowerCase());
 
-  const filteredServices = services.filter((service) => {
-    const matchesCategory = activeCategory === "All" || service.category === activeCategory;
+  const activeIndustryIndex = serviceCategories.indexOf(activeIndustry);
+  const activeIndustryData = serviceIndustries.find((industry) => industry.name === activeIndustry) || serviceIndustries[0];
+
+  const filteredServices = activeIndustryData.automations
+    .map((automation) => services.find((service) => service.id === automation.id))
+    .filter(Boolean)
+    .filter((service) => {
     const haystack = [
       service.name,
       service.category,
@@ -23,10 +31,26 @@ export default function Services() {
       .toLowerCase();
 
     const matchesQuery = deferredQuery ? haystack.includes(deferredQuery) : true;
-    return matchesCategory && matchesQuery;
+    return matchesQuery;
   });
 
+  const pageCount = Math.max(1, Math.ceil(filteredServices.length / SERVICES_PER_PAGE));
+  const currentPage = Math.min(page, pageCount - 1);
+  const pagedServices = filteredServices.slice(
+    currentPage * SERVICES_PER_PAGE,
+    currentPage * SERVICES_PER_PAGE + SERVICES_PER_PAGE
+  );
   const featuredService = filteredServices[0] || services[0];
+
+  const changeIndustry = (industry) => {
+    setActiveIndustry(industry);
+    setPage(0);
+  };
+
+  const stepIndustry = (direction) => {
+    const nextIndex = (activeIndustryIndex + direction + serviceCategories.length) % serviceCategories.length;
+    changeIndustry(serviceCategories[nextIndex]);
+  };
 
   return (
     <div className="page-shell pb-10">
@@ -43,9 +67,9 @@ export default function Services() {
 
               <div className="mt-8 grid gap-4 sm:grid-cols-3">
                 {[
-                  { value: `${services.length}`, label: "core systems" },
-                  { value: "5+", label: "use-case tracks" },
-                  { value: "Premium", label: "interaction grade" },
+                  { value: `${services.length}`, label: "automations" },
+                  { value: `${serviceIndustries.length}`, label: "industry pages" },
+                  { value: "Demo", label: "next step" },
                 ].map((item) => (
                   <div key={item.label} className="metric-card">
                     <div className="text-2xl font-extrabold text-white">{item.value}</div>
@@ -76,9 +100,9 @@ export default function Services() {
                   <button
                     key={category}
                     type="button"
-                    aria-pressed={activeCategory === category}
-                    className={`filter-chip ${activeCategory === category ? "is-active" : ""}`}
-                    onClick={() => setActiveCategory(category)}
+                    aria-pressed={activeIndustry === category}
+                    className={`filter-chip ${activeIndustry === category ? "is-active" : ""}`}
+                    onClick={() => changeIndustry(category)}
                   >
                     {category}
                   </button>
@@ -101,8 +125,8 @@ export default function Services() {
                     <h3 className="text-3xl font-semibold text-white">{featuredService.name}</h3>
                     <p className="mt-4 text-sm leading-7 text-slate-300">{featuredService.tagline}</p>
                     <div className="mt-6">
-                      <TransitionLink to={`/services/${featuredService.id}`} className="button-secondary">
-                        See the offer
+                      <TransitionLink to={`/contact?service=${featuredService.id}`} className="button-secondary">
+                        Book a demo
                       </TransitionLink>
                     </div>
                   </div>
@@ -117,19 +141,50 @@ export default function Services() {
         <Reveal className="mb-8 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
           <div>
             <h2 className="text-3xl font-semibold text-white sm:text-4xl">
-              {filteredServices.length} service{filteredServices.length === 1 ? "" : "s"} ready to grow your business
+              {activeIndustry} automations
             </h2>
+            <p className="mt-3 max-w-2xl text-sm leading-7 text-slate-400">{activeIndustryData.description}</p>
           </div>
-          <div className="text-sm leading-7 text-slate-400">
-            Find the fastest path to more leads, stronger follow-up, and smoother delivery.
+          <div className="flex flex-wrap gap-3">
+            <button type="button" className="button-secondary" onClick={() => stepIndustry(-1)}>
+              Previous industry
+            </button>
+            <button type="button" className="button-secondary" onClick={() => stepIndustry(1)}>
+              Next industry
+            </button>
           </div>
         </Reveal>
 
         <div className="grid gap-6 lg:grid-cols-2 xl:grid-cols-3">
-          {filteredServices.map((service, index) => (
+          {pagedServices.map((service, index) => (
             <ServiceCard key={service.id} service={service} index={index} />
           ))}
         </div>
+
+        {pageCount > 1 && (
+          <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
+            {Array.from({ length: pageCount }, (_, index) => (
+              <button
+                key={index}
+                type="button"
+                className={`filter-chip ${currentPage === index ? "is-active" : ""}`}
+                onClick={() => setPage(index)}
+              >
+                Page {index + 1}
+              </button>
+            ))}
+          </div>
+        )}
+
+        <Reveal className="mt-8 rounded-[28px] border border-white/10 bg-white/[0.03] p-5 sm:flex sm:items-center sm:justify-between">
+          <div>
+            <h3 className="text-2xl font-semibold text-white">Need a custom solution?</h3>
+            <p className="mt-2 text-sm leading-7 text-slate-400">Book a demo and we will map the workflow around your exact business.</p>
+          </div>
+          <TransitionLink to="/contact?service=custom-solution" className="button-primary mt-5 sm:mt-0">
+            Book a demo
+          </TransitionLink>
+        </Reveal>
       </section>
 
       <section className="site-container py-10 sm:py-16">
