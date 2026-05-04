@@ -50,8 +50,8 @@ export default function Footer() {
           <div>
             <div className="text-xs font-extrabold uppercase tracking-[0.24em] text-slate-500">Contact</div>
             <div className="mt-4 grid gap-3 text-sm text-slate-300">
-              <a href="mailto:avlokbusiness@gmail.com" className="transition hover:text-white">
-                avlokbusiness@gmail.com
+              <a href="mailto:contact@avlokai.com" className="transition hover:text-white">
+                contact@avlokai.com
               </a>
               <a href="tel:+919346672015" className="transition hover:text-white">
                 +91 9346672015
