@@ -174,6 +174,18 @@ const parseSmbAutomations = () => {
 const imageOverrides = {
   "it-services-and-software-development-performance-metrics-and-dashboard-generation": "/dashboard_metrics.png",
   "it-services-and-software-development-contract-expiration-and-renewal-alerts": "/contract_alerts.png",
+  "e-commerce-and-retail-customer-review-and-reputation-management": "/review_reputation.png",
+  "e-commerce-and-retail-customer-segmentation-and-targeted-marketing": "/customer_segmentation.png",
+  "e-commerce-and-retail-customer-service-chatbot-and-faq-automation": "/chatbot_faq.png",
+  "e-commerce-and-retail-loyalty-program-and-rewards-automation": "/loyalty_rewards.png",
+  "manufacturing-and-logistics-inventory-optimization-and-reorder-alerts": "/inventory_reorder.png",
+  "manufacturing-and-logistics-compliance-and-audit-documentation": "/compliance_audit.png",
+  "manufacturing-and-logistics-shipment-consolidation-and-cost-optimization": "/shipment_optimization.png",
+  "real-estate-and-construction-document-management-and-legal-compliance": "/document_legal.png",
+  "smb-automations-google-my-business-auto-post-updates": "/google_business.png",
+  "smb-automations-daily-sales-summary-email": "/sales_summary.png",
+  "smb-automations-low-stock-and-out-of-stock-alerts": "/low_stock_alerts.png",
+  "smb-automations-scheduled-social-media-posts": "/social_media_posts.png",
 };
 
 export const serviceIndustries = [...parseEnterpriseIndustries(), parseSmbAutomations()];
