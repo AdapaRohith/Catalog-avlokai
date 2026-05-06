@@ -186,6 +186,10 @@ const imageOverrides = {
   "smb-automations-daily-sales-summary-email": "/sales_summary.png",
   "smb-automations-low-stock-and-out-of-stock-alerts": "/low_stock_alerts.png",
   "smb-automations-scheduled-social-media-posts": "/social_media_posts.png",
+  "smb-automations-google-workspace-team-email-notifications": "/team_notifications.png",
+  "smb-automations-backup-auto-backup-google-drive-files": "/backup_drive.png",
+  "smb-automations-lead-source-tracking": "/lead_tracking.png",
+  "smb-automations-expense-tracker-auto-categorize": "/expense_tracker.svg",
 };
 
 export const serviceIndustries = [...parseEnterpriseIndustries(), parseSmbAutomations()];
