@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
-import { useLocation } from "react-router-dom";
+import { Link, NavLink, useLocation } from "react-router-dom";
 import logo from "../assets/AvlokAi.png";
-import { TransitionLink, TransitionNavLink } from "./TransitionLink";
 
 const navLinks = [
   { to: "/", label: "Home" },
@@ -38,7 +37,7 @@ export default function Navbar() {
         }`}
       >
         <div className="flex items-center justify-between px-4 py-3 sm:px-6">
-          <TransitionLink to="/" className="flex items-center gap-4">
+          <Link to="/" className="flex items-center gap-4">
             <div className="rounded-2xl border border-white/10 bg-white/5 p-2.5 shadow-[0_18px_45px_rgba(4,9,24,0.28)]">
               <img src={logo} alt="AvlokAI" className="h-10 w-10 rounded-xl object-contain sm:h-11 sm:w-11" />
             </div>
@@ -46,11 +45,11 @@ export default function Navbar() {
               <div className="text-sm font-extrabold uppercase tracking-[0.28em] text-slate-200">AvlokAI</div>
               <div className="text-xs uppercase tracking-[0.24em] text-slate-500">AI Growth Systems</div>
             </div>
-          </TransitionLink>
+          </Link>
 
           <nav className="hidden items-center gap-1 lg:flex">
             {navLinks.map((link) => (
-              <TransitionNavLink
+              <NavLink
                 key={link.to}
                 to={link.to}
                 end={link.to === "/"}
@@ -63,7 +62,7 @@ export default function Navbar() {
                 }
               >
                 {link.label}
-              </TransitionNavLink>
+              </NavLink>
             ))}
           </nav>
 
@@ -74,9 +73,9 @@ export default function Navbar() {
             >
               contact@avlokai.com
             </a>
-            <TransitionLink to="/contact" className="button-primary px-5 py-3">
+            <Link to="/contact" className="button-primary px-5 py-3">
               Start a build
-            </TransitionLink>
+            </Link>
           </div>
 
           <button
@@ -101,7 +100,7 @@ export default function Navbar() {
           <div className="border-t border-white/10 px-4 py-4 sm:px-6">
             <nav className="grid gap-2">
               {navLinks.map((link) => (
-                <TransitionNavLink
+                <NavLink
                   key={link.to}
                   to={link.to}
                   end={link.to === "/"}
@@ -112,7 +111,7 @@ export default function Navbar() {
                   }
                 >
                   {link.label}
-                </TransitionNavLink>
+                </NavLink>
               ))}
             </nav>
 
@@ -123,9 +122,9 @@ export default function Navbar() {
               >
                 contact@avlokai.com
               </a>
-              <TransitionLink to="/contact" className="button-primary w-full">
+              <Link to="/contact" className="button-primary w-full">
                 Start a build
-              </TransitionLink>
+              </Link>
             </div>
           </div>
         </div>

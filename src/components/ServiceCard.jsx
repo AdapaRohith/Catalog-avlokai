@@ -9,10 +9,6 @@ export default function ServiceCard({ service, index = 0 }) {
           <div className="media-frame mb-5 h-56 sm:h-64">
             <img src={service.image} alt={service.imageAlt || service.name} loading="lazy" />
             <div className="absolute inset-0 bg-gradient-to-t from-[#050816] via-transparent to-transparent" />
-            <div className="absolute left-4 top-4 flex flex-wrap gap-2">
-              <span className="info-chip bg-white/10 text-white">{service.category}</span>
-              <span className="info-chip bg-white/8">{service.timeline}</span>
-            </div>
           </div>
 
           <div className="flex flex-1 flex-col">

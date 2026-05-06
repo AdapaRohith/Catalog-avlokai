@@ -72,15 +72,10 @@ export default function Home() {
                       key={service.id}
                       className={`catalog-card rounded-[28px] p-4 ${index === 1 ? "sm:ml-10" : "sm:mr-10"}`}
                     >
-                      <div className="flex items-start justify-between gap-4">
-                        <div>
-                          <div className="mb-2 text-xs font-bold uppercase tracking-[0.24em] text-slate-500">{service.category}</div>
-                          <div className="text-2xl font-semibold text-white">{service.name}</div>
-                          <p className="mt-3 max-w-md text-sm leading-7 text-slate-300">{service.tagline}</p>
-                        </div>
-                        <div className="rounded-2xl border border-white/10 bg-white/5 px-3 py-2 text-sm font-bold text-white">
-                          {service.timeline}
-                        </div>
+                      <div>
+                        <div className="mb-2 text-xs font-bold uppercase tracking-[0.24em] text-slate-500">{service.category}</div>
+                        <div className="text-2xl font-semibold text-white">{service.name}</div>
+                        <p className="mt-3 max-w-md text-sm leading-7 text-slate-300">{service.tagline}</p>
                       </div>
                     </div>
                   ))}

@@ -42,7 +42,6 @@ export default function ServiceDetail() {
                     Back to systems
                   </TransitionLink>
                   <span className="info-chip">{service.category}</span>
-                  <span className="info-chip">{service.timeline}</span>
                 </div>
                 <h1 className="max-w-3xl text-4xl font-semibold text-white sm:text-6xl">{service.name}</h1>
                 <p className="mt-5 max-w-2xl text-base leading-8 text-slate-300 sm:text-lg">{service.tagline}</p>
@@ -125,11 +124,10 @@ export default function ServiceDetail() {
           <Reveal delay={90}>
             <div className="catalog-card h-full p-6 sm:p-8">
               <h2 className="mb-5 text-3xl font-semibold text-white">What it costs to level up.</h2>
-              <div className="grid gap-4 sm:grid-cols-3">
+              <div className="grid gap-4 sm:grid-cols-2">
                 {[
                   { label: "Starting at", value: service.startingPrice },
                   { label: "Pricing model", value: service.pricingModel },
-                  { label: "Timeline", value: service.timeline },
                 ].map((item) => (
                   <div key={item.label} className="metric-card">
                     <div className="text-xs uppercase tracking-[0.2em] text-slate-500">{item.label}</div>
