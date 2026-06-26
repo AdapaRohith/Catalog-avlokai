@@ -1,21 +1,93 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 
 <head>
   <meta charset="UTF-8" />
-  <link rel="icon" type="image/jpeg" href="/fevicon.jpeg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- No-flash theme init: set data-theme before first paint -->
+  <script>
+    (function () {
+      try {
+        var k = "avlokai-theme";
+        var s = localStorage.getItem(k);
+        var t = (s === "light" || s === "dark")
+          ? s
+          : (window.matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark");
+        document.documentElement.setAttribute("data-theme", t);
+      } catch (e) { }
+    })();
+  </script>
+
+  <title>AvlokAI — AI Automation Systems for Modern Businesses</title>
+  <meta name="description"
+    content="AvlokAI builds AI-powered automation systems for modern businesses — website automation, lead generation, CRM integration, chatbots, and 60+ industry workflows. Automate. Simplify. Scale." />
+  <meta name="keywords"
+    content="AI automation, business automation, lead generation, CRM integration, AI chatbot, workflow automation, AvlokAI" />
+  <meta name="author" content="AvlokAI" />
+  <meta name="robots" content="index, follow, max-image-preview:large" />
+  <meta name="theme-color" content="#060912" />
+  <link rel="canonical" href="https://avlokai.com/" />
+
+  <!-- Open Graph -->
+  <meta property="og:site_name" content="AvlokAI" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="AvlokAI — AI Automation Systems for Modern Businesses" />
+  <meta property="og:description"
+    content="AI-powered automation systems for modern businesses: website automation, lead generation, CRM integration, chatbots and 60+ industry workflows." />
+  <meta property="og:url" content="https://avlokai.com/" />
+  <meta property="og:image" content="https://avlokai.com/avlokai-og.png" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="AvlokAI — AI Automation Systems for Modern Businesses" />
+  <meta name="twitter:description"
+    content="AI-powered automation systems for modern businesses. Automate. Simplify. Scale." />
+  <meta name="twitter:image" content="https://avlokai.com/avlokai-og.png" />
+
+  <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48.png" />
+  <link rel="icon" type="image/png" sizes="512x512" href="/favicon.png" />
+  <link rel="apple-touch-icon" href="/icon-512.png" />
+  <link rel="manifest" href="/site.webmanifest" />
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
-    href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Sora:wght@400;500;600;700;800&display=swap"
     rel="stylesheet">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>AvlokAI — Automate. Simplify. Scale.</title>
-  <meta name="description"
-    content="AvlokAI builds AI-powered automation systems for modern businesses. Website automation, lead generation, CRM integration, chatbots and more." />
+
+  <!-- Structured data for search + AI answer engines (GEO) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "AvlokAI",
+    "url": "https://avlokai.com/",
+    "logo": "https://avlokai.com/icon-512.png",
+    "description": "AvlokAI builds AI-powered automation systems for modern businesses — website automation, lead generation, CRM integration, chatbots, and industry-specific workflows.",
+    "slogan": "Automate. Simplify. Scale.",
+    "email": "contact@avlokai.com",
+    "telephone": "+91-9346672015",
+    "sameAs": [],
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "email": "contact@avlokai.com",
+      "telephone": "+91-9346672015",
+      "contactType": "sales"
+    }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "AvlokAI",
+    "url": "https://avlokai.com/"
+  }
+  </script>
 </head>
 
-<body class="bg-stone-900 text-white">
+<body>
   <div id="root"></div>
   <script type="module" src="/src/main.jsx"></script>
 </body>

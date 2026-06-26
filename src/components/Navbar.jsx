@@ -1,11 +1,10 @@
 import { useEffect, useState } from "react";
 import { Link, NavLink, useLocation } from "react-router-dom";
-import logo from "../assets/AvlokAi.png";
+import ThemeToggle from "./ThemeToggle";
 
 const navLinks = [
   { to: "/", label: "Home" },
-  { to: "/services", label: "Systems" },
-  { to: "/pricing", label: "Pricing" },
+  { to: "/services", label: "Catalog" },
   { to: "/about", label: "Why AvlokAI" },
   { to: "/contact", label: "Contact" },
 ];
@@ -23,41 +22,40 @@ export default function Navbar() {
     const handleScroll = () => setScrolled(window.scrollY > 24);
     handleScroll();
     window.addEventListener("scroll", handleScroll, { passive: true });
-
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   return (
     <header className="fixed inset-x-0 top-0 z-50 px-4 pt-4 sm:px-6">
       <div
-        className={`site-container rounded-[28px] transition-all duration-500 ${
+        className={`site-container rounded-2xl border transition-all duration-300 ${
           scrolled
-            ? "glass-panel-strong border-white/12"
-            : "border border-white/6 bg-white/[0.03] backdrop-blur-xl"
+            ? "glass-panel-strong"
+            : "border-[var(--hairline)] bg-[var(--surface)]/80 backdrop-blur-xl shadow-[var(--shadow-sm)]"
         }`}
       >
-        <div className="flex items-center justify-between px-4 py-3 sm:px-6">
-          <Link to="/" className="flex items-center gap-4">
-            <div className="rounded-2xl border border-white/10 bg-white/5 p-2.5 shadow-[0_18px_45px_rgba(4,9,24,0.28)]">
-              <img src={logo} alt="AvlokAI" className="h-10 w-10 rounded-xl object-contain sm:h-11 sm:w-11" />
-            </div>
-            <div>
-              <div className="text-sm font-extrabold uppercase tracking-[0.28em] text-slate-200">AvlokAI</div>
-              <div className="text-xs uppercase tracking-[0.24em] text-slate-500">AI Growth Systems</div>
-            </div>
+        <div className="flex items-center justify-between px-4 py-3 sm:px-5">
+          <Link to="/" className="flex items-center gap-3" aria-label="AvlokAI home">
+            <span className="rounded-xl border border-[var(--hairline)] bg-[var(--surface-soft)] p-1.5 shadow-[var(--shadow-sm)]">
+              <img src="/avlokai-mark.png" alt="AvlokAI logo" className="h-9 w-9 object-contain sm:h-10 sm:w-10" />
+            </span>
+            <span className="leading-tight">
+              <span className="block text-sm font-extrabold uppercase tracking-[0.26em] text-[var(--text)]">AvlokAI</span>
+              <span className="block text-[11px] uppercase tracking-[0.22em] text-[var(--subtle)]">AI Growth Systems</span>
+            </span>
           </Link>
 
-          <nav className="hidden items-center gap-1 lg:flex">
+          <nav className="hidden items-center gap-1 lg:flex" aria-label="Primary">
             {navLinks.map((link) => (
               <NavLink
                 key={link.to}
                 to={link.to}
                 end={link.to === "/"}
                 className={({ isActive }) =>
-                  `rounded-full px-4 py-2.5 text-sm font-semibold transition-all duration-300 ${
+                  `rounded-xl px-4 py-2.5 text-sm font-semibold transition-all duration-200 ${
                     isActive
-                      ? "bg-white/10 text-white shadow-[inset_0_0_0_1px_rgba(255,255,255,0.08)]"
-                      : "text-slate-300 hover:bg-white/6 hover:text-white"
+                      ? "bg-gradient-to-b from-[var(--brand-1)] to-[var(--brand-2)] text-white shadow-[0_6px_16px_var(--brand-glow)]"
+                      : "text-[var(--muted)] hover:bg-[var(--surface-soft)] hover:text-[var(--text)]"
                   }`
                 }
               >
@@ -66,47 +64,51 @@ export default function Navbar() {
             ))}
           </nav>
 
-          <div className="hidden items-center gap-3 lg:flex">
-            <a
-              href="mailto:contact@avlokai.com"
-              className="rounded-full border border-white/10 px-4 py-2.5 text-sm font-semibold text-slate-300 transition hover:border-[rgba(153,225,255,0.24)] hover:text-white"
-            >
-              contact@avlokai.com
-            </a>
-            <Link to="/contact" className="button-primary px-5 py-3">
+          <div className="hidden items-center gap-2 lg:flex">
+            <ThemeToggle />
+            <Link to="/contact" className="button-primary btn-sm">
               Start a build
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M5 12h14M13 6l6 6-6 6" />
+              </svg>
             </Link>
           </div>
 
-          <button
-            type="button"
-            aria-label="Open navigation"
-            className="inline-flex h-12 w-12 items-center justify-center rounded-full border border-white/10 bg-white/5 text-slate-200 transition hover:bg-white/10 lg:hidden"
-            onClick={() => setOpen((value) => !value)}
-          >
-            <span className="flex flex-col gap-1.5">
-              <span className={`h-0.5 w-5 rounded-full bg-current transition ${open ? "translate-y-2 rotate-45" : ""}`} />
-              <span className={`h-0.5 w-5 rounded-full bg-current transition ${open ? "opacity-0" : ""}`} />
-              <span className={`h-0.5 w-5 rounded-full bg-current transition ${open ? "-translate-y-2 -rotate-45" : ""}`} />
-            </span>
-          </button>
+          <div className="flex items-center gap-2 lg:hidden">
+            <ThemeToggle />
+            <button
+              type="button"
+              aria-label={open ? "Close navigation" : "Open navigation"}
+              aria-expanded={open}
+              className="inline-flex h-11 w-11 items-center justify-center rounded-xl border border-[var(--hairline-strong)] bg-[var(--surface-2)] text-[var(--text)] shadow-[var(--shadow-sm)] transition active:translate-y-px"
+              onClick={() => setOpen((value) => !value)}
+            >
+              <span className="flex flex-col gap-1.5">
+                <span className={`h-0.5 w-5 rounded-full bg-current transition ${open ? "translate-y-2 rotate-45" : ""}`} />
+                <span className={`h-0.5 w-5 rounded-full bg-current transition ${open ? "opacity-0" : ""}`} />
+                <span className={`h-0.5 w-5 rounded-full bg-current transition ${open ? "-translate-y-2 -rotate-45" : ""}`} />
+              </span>
+            </button>
+          </div>
         </div>
 
         <div
-          className={`overflow-hidden transition-all duration-500 lg:hidden ${
-            open ? "max-h-[420px] opacity-100" : "max-h-0 opacity-0"
+          className={`overflow-hidden transition-all duration-300 lg:hidden ${
+            open ? "max-h-[460px] opacity-100" : "max-h-0 opacity-0"
           }`}
         >
-          <div className="border-t border-white/10 px-4 py-4 sm:px-6">
-            <nav className="grid gap-2">
+          <div className="border-t border-[var(--hairline)] px-4 py-4 sm:px-5">
+            <nav className="grid gap-2" aria-label="Mobile">
               {navLinks.map((link) => (
                 <NavLink
                   key={link.to}
                   to={link.to}
                   end={link.to === "/"}
                   className={({ isActive }) =>
-                    `rounded-2xl px-4 py-3 text-sm font-semibold transition ${
-                      isActive ? "bg-white/10 text-white" : "bg-white/[0.03] text-slate-300 hover:bg-white/8 hover:text-white"
+                    `rounded-xl px-4 py-3 text-sm font-semibold transition ${
+                      isActive
+                        ? "bg-gradient-to-b from-[var(--brand-1)] to-[var(--brand-2)] text-white"
+                        : "bg-[var(--surface-soft)] text-[var(--muted)] hover:text-[var(--text)]"
                     }`
                   }
                 >
@@ -118,7 +120,7 @@ export default function Navbar() {
             <div className="mt-4 grid gap-3">
               <a
                 href="mailto:contact@avlokai.com"
-                className="rounded-2xl border border-white/10 px-4 py-3 text-sm font-semibold text-slate-300"
+                className="rounded-xl border border-[var(--hairline)] px-4 py-3 text-sm font-semibold text-[var(--muted)]"
               >
                 contact@avlokai.com
               </a>

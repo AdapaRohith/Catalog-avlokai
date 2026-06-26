@@ -1,0 +1,23 @@
+{
+  "name": "AvlokAI — AI Automation Systems",
+  "short_name": "AvlokAI",
+  "description": "AI-powered automation systems for modern businesses. Automate. Simplify. Scale.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#060912",
+  "theme_color": "#060912",
+  "icons": [
+    {
+      "src": "/favicon.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ]
+}
