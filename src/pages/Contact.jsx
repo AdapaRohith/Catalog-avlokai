@@ -59,7 +59,7 @@ export default function Contact() {
       form.message,
     ].join("\n");
 
-    const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=contact@avlokai.com&su=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=hello@avlokai.com&su=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
     window.open(gmailUrl, "_blank");
   };
 
@@ -84,7 +84,7 @@ export default function Contact() {
 
               <div className="mt-8 grid gap-4">
                 {[
-                  { label: "Email", value: "contact@avlokai.com", href: "mailto:contact@avlokai.com" },
+                  { label: "Email", value: "hello@avlokai.com", href: "mailto:hello@avlokai.com" },
                   { label: "Phone", value: "+91 9346672015", href: "tel:+919346672015" },
                   { label: "Response goal", value: "Within 24 hours" },
                 ].map((item) => (

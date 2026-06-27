@@ -119,10 +119,10 @@ export default function Navbar() {
 
             <div className="mt-4 grid gap-3">
               <a
-                href="mailto:contact@avlokai.com"
+                href="mailto:hello@avlokai.com"
                 className="rounded-xl border border-[var(--hairline)] px-4 py-3 text-sm font-semibold text-[var(--muted)]"
               >
-                contact@avlokai.com
+                hello@avlokai.com
               </a>
               <Link to="/contact" className="button-primary w-full">
                 Start a build
